@@ -1,9 +1,9 @@
 _PS1_TITLE="\[\e]0;\u@\h: \w\a\]";
 # _PS_DATETIME="\[\e[0;37m\][\D{%Y-%m-%d %H:%M:%S}]\[\e[00m\]";
 
-_PS_DATETIME="[\D{%Y-%m-%d %H:%M:%S}]";
+_PS_DATETIME="\[\e[02m\][\D{%Y-%m-%d %H:%M:%S}]\[\e[00m\]";
 
-_PS1_CLASSIC="\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\] \w\[\e[00m\]";
+_PS1_CLASSIC="\[\e[01;92m\]\u@\h\[\e[00m\]:\[\e[00;94m\] \w\[\e[00m\]";
 _PS1_GIT="";
 
 # Function to get git information
