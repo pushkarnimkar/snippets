@@ -14,17 +14,17 @@ update_prompt() {
         local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null);
 
         # Check if repo is dirty (has uncommitted changes)
-        local dirty="\[\e[01;92m\]✓\[\e[00m\]"
+        local dirty="\[\e[01;36m\]✓\[\e[00m\]"
         if [[ -n "$(git status --porcelain 2>/dev/null)" ]]; then
             # Mark as dirty with an asterisk;
-            dirty="\[\e[01;91m\]✗\[\e[00m\]" 
+            dirty="\[\e[01;31m\]✗\[\e[00m\]" 
         fi
 
-        _PS1_GIT="\[\e[00;31m\]git:\[\e[00m\]\[\e[01;94m\]($branch)\[\e[00m\] $dirty ";
+        _PS1_GIT="\[\e[00;36m\] git:\[\e[00m\]\[\e[01;34m\]($branch)\[\e[00m\] $dirty ";
     else 
         emojis=('🧙' '🐣' '🤖' '☃️ ' '🎃' '🐰' '🚀' '🔥');
         # _PS1_GIT="\[\e[0;37m\]>>>\[\e[00m\] ${emojis[RANDOM % ${#emojis[@]}]} "
-        _PS1_GIT="\[\e[00;31m\]>>> \[\e[00m\]${emojis[RANDOM % ${#emojis[@]}]} "
+        _PS1_GIT="\[\e[00;36m\] >>> \[\e[00m\]${emojis[RANDOM % ${#emojis[@]}]} "
     fi
 
     PS1="$_PS1_TITLE\n$_PS_DATETIME $_PS1_CLASSIC\n$_PS1_GIT"
